@@ -30,12 +30,14 @@
   </div>
 
 
-  
-  <div class="actions">
-    <!-- <div class="control"> -->
-    <%= f.submit "Sign up", class: 'button is-primary' %>
-    <!-- </div> -->
-  </div>
+  <div class="column">
+    <div class="actions">
+      <!-- <div class="control"> -->
+      <%= f.submit "Sign up", class: 'button is-primary' %>
+      <!-- </div> -->
+    </div>
+</div>
 <% end %>
-
+<div class="column">
 <%= render "devise/shared/links" %>
+</div>
