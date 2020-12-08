@@ -6,7 +6,7 @@ class StoriesController < ApplicationController
     end
 
     def index
-        @stories = current_user.stories.order(created_at: :desc)
+        @stories = current_user.stories.where(deleted_at: nil).order(created_at: :desc)
     end
 
 
@@ -31,6 +31,16 @@ class StoriesController < ApplicationController
                 render :edit
                 end
     end
+
+
+    def destroy
+        # 完全刪除資料
+        @story.destroy 
+
+        redirect_to stories_path,notice: '故事已刪除'
+    end
+
+
 
     private
 
