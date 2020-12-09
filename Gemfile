@@ -62,3 +62,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # 會員系統 vise
 gem 'devise', '~> 4.7', '>= 4.7.3'
+# 狀態機 AASM
+gem 'aasm', '~> 5.0', '>= 5.0.6'
