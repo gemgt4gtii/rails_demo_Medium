@@ -64,3 +64,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise', '~> 4.7', '>= 4.7.3'
 # 狀態機 AASM
 gem 'aasm', '~> 5.0', '>= 5.0.6'
+# URL轉換 friendly_id
+gem 'friendly_id', '~> 5.3'
+# 編碼轉換 babosa
+gem 'babosa', '~> 1.0', '>= 1.0.3'

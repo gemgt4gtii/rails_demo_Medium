@@ -26,10 +26,19 @@ class StoriesController < ApplicationController
 
     def update
         if @story.update(story_params)
-            redirect_to stories_path,notice: '故事已更新'
-            else
-                render :edit
+            case 
+            when params[:publish]
+                @story.publish!
+                redirect_to stories_path,notice: '故事已發佈'
+            when params[:unpublish]
+                @story.unpublish!
+                redirect_to stories_path,notice: '故事已刪除'
+                else
+                redirect_to stories_path(@story),notice: '故事已儲存'
                 end
+        else
+            render :edit
+        end
     end
 
 
@@ -45,7 +54,7 @@ class StoriesController < ApplicationController
     private
 
     def find_story
-        @story = current_user.stories.find(params[:id])
+        @story = current_user.stories.friendly.find(params[:id])
        
     end
 
