@@ -12,18 +12,19 @@
 
 
 <div class="field">
-  <%= f.label :password %>
+  <%= f.label '密碼' %>
 
   <div class="control">
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    
+    <% end %>
     <%= f.password_field :password, autocomplete: "new-password", class: 'input'  %>
+    <p class="help is-danger">(最少<%= @minimum_password_length %> 個字符)</p>
   </div>
 </div>
 
 <div class="field">
-  <%= f.label :password_confirmation %><br />
+  <%= f.label '再次確認' %><br />
   <div class="control">
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'input' %>
   </div>
