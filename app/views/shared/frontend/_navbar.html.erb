@@ -24,6 +24,7 @@
         <% if user_signed_in? %>
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
+            <%= image_tag current_user.avatar.variant(resize: '50x50'),class: 'user-avatar' if current_user.avatar.attached? %>
             <%= current_user.email %>
           </a>
 
