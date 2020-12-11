@@ -4,6 +4,17 @@
 <%= render "devise/shared/error_messages", resource: resource %>
 
 <div class="field">
+  <%= f.label :username, '使用者帳號' %><br />
+  
+  <div class="control">
+    <%= f.text_field :username, autofocus: true, class: 'input is-medium' %>
+  </div>
+  <p class="help">範例:</p>
+</div>
+
+
+
+<div class="field">
   <%= f.label :email %><br />
   <div class="control">
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'input' %>
@@ -34,7 +45,7 @@
 <div class="column">
   <div class="actions">
     <!-- <div class="control"> -->
-    <%= f.submit "Sign up", class: 'button is-primary' %>
+    <%= f.submit "註冊", class: 'button is-primary' %>
     <!-- </div> -->
   </div>
 </div>
