@@ -83,18 +83,20 @@
           
             <div class="media-content">
               <h2 class="title is-4"><%= link_to story.title ,story_page_path(story.user.username,story), class: 'has-text-dark' %></h2>
-              <p class="content"><%= story.content %></p>
+              <p class="content"><%= strip_tags(story.content).truncate(150) %></p>
               <footer>
-                <p><%= link_to story.user.username, user_page_path(story.user.username),class: 'has-text-grey' %> | Taipei.IO</p>
+                <p><%= link_to story.user.username, user_page_path(story.user.username),class: 'has-text-grey' %> | 最後編輯時間: <%= time_ago_in_words(story.updated_at)%></p>
                 <br>
-                <p>最後編輯時間: <%= time_ago_in_words(story.updated_at)%></p>
+                
               </footer>
             </div>
+            <% if story.cover_image.attached? %>
             <figure class="media-right">
-              <img src="https://fakeimg.pl/150x150/">
+            <%= image_tag story.cover_image.variant(resize: '150x150') %>
             </figure>
+            <% end %>
           </article>
-          
+            
             <% end %>
      
         </section>
