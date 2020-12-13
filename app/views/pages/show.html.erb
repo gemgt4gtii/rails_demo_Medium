@@ -5,7 +5,7 @@
     <span class="profile">
       
       <%= image_tag @story.user.avatar.variant(resize: '50x50'), class: 'avatar' if @story.user.avatar.attached? %>
-      <span class="username"><%= @story.user.username %></span>
+      <span class="username"><%= @story.user.username%></span>
       <a href="#" class="follow-button">Follow</a>
     </span>
 

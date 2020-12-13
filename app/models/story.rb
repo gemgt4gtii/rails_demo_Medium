@@ -2,6 +2,7 @@ class Story < ApplicationRecord
   # 引用套件
   include AASM
   extend FriendlyId
+  acts_as_paranoid
 
   friendly_id :slug_candidate, use: :slugged
 
@@ -13,15 +14,15 @@ class Story < ApplicationRecord
   has_one_attached :cover_image
 
   # scope
-  default_scope { where(deleted_at: nil)}
+  # default_scope { where(deleted_at: nil)}
   # scope :published_stories, -> {where(status: 'published')}
   scope :published_stories, -> { published.with_attached_cover_image.order(created_at: :desc).includes(:user) }
   
 
   # instance methods
-  def destroy
-    update(deleted_at: Time.now)
-  end
+  # def destroy
+  #   update(deleted_at: Time.now)
+  # end
 
   def normalize_friendly_id(input)
     input.to_s.to_slug.normalize(transliterations: :russian).to_s
@@ -34,7 +35,7 @@ class Story < ApplicationRecord
     event :publish do
       transitions from: :draft, to: :published
       after do
-        puts "發簡訊通知"
+        puts "簡訊通知"
       end
     end
     event :unpublish do

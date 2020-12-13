@@ -72,3 +72,5 @@ gem 'friendly_id', '~> 5.3'
 gem 'babosa', '~> 1.0', '>= 1.0.3'
 # webpacker 套件
 gem 'webpacker', '~> 4.0', '>= 4.0.7'
+# 
+gem 'paranoia', '~> 2.4', '>= 2.4.2'
