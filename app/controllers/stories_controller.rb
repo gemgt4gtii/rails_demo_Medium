@@ -13,10 +13,7 @@ class StoriesController < ApplicationController
 
     def create
       @story = current_user.stories.new(story_params)
-
-
         if @story.save
-            
             redirect_to stories_path, notice: '新增成功'
         else
             render :new
