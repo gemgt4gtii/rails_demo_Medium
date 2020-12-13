@@ -3,7 +3,11 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  # stores/id/clap
   resources :stories do
+    member do
+      post :clap
+    end
     resources :comments, only: [:create]
   end
 
