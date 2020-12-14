@@ -74,3 +74,5 @@ gem 'babosa', '~> 1.0', '>= 1.0.3'
 gem 'webpacker', '~> 4.0', '>= 4.0.7'
 # 
 gem 'paranoia', '~> 2.4', '>= 2.4.2'
+
+gem 'hirb', '~> 0.7.3'
