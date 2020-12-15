@@ -1,15 +1,15 @@
 import { Controller } from "stimulus"
 import axios from 'axios'
 export default class extends Controller {
-  static targets = [ "follow-button" ]
+  static targets = [ "followButton" ]
 
-  follow(event){
+  follow(event) {
     event.preventDefault()
     
         let user = this.followButtonTarget.dataset.user
         let button = this.followButtonTarget
       //   /users/:id/follow
-        axios.post(`/users/${user}/follow`)
+        axios.post(`/api/users/${user}/follow`)
         .then(function(response){
             let status = response.data.status
             switch (status){
@@ -17,11 +17,9 @@ export default class extends Controller {
                     alert('請先登入')
                     break
                     default:
-                        target.innerHTML = button
+                        button.innerHTML = status
             }
-
-
-            console.log(response.data)
+            
         })
         .catch(function(error){
             console.log(error)

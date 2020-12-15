@@ -9,7 +9,8 @@
                                 data: { action: 'user#follow', 
                                 user: @story.user.id,
                                 target: 'user.followButton' } do %>
-                                <%= (user_signed_in? && current_user.follow?(@story.user)) ? 'Follwed' : 'Follow' %>                               
+                                <%= (user_signed_in? && current_user.follow?(@story.user)) ? 'Followed' : 'Follow' %>
+                                                             
                                 <% end %>      
     </span>
 

@@ -14,17 +14,17 @@ class User < ApplicationRecord
 
   # instance method
   def follow?(user)
-    follows.exists?(following: user)    
-  end 
+    follows.exists?(following: user)
+  end
 
   def follow!(user)
     if follow?(user)
-        follows.find_by(following: user).destroy
-        return 'Follow'
+      follows.find_by(following: user).destroy
+      return 'Follow'
     else
       follows.create(following: user)
       return 'Followed'
-        end
-  end
+    end
 
+  end
 end

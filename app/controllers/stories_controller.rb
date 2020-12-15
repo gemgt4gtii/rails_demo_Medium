@@ -1,7 +1,7 @@
 class StoriesController < ApplicationController
-    before_action :authenticate_user!, except: [:clap]
+    before_action :authenticate_user!
     before_action :find_story, only: [:edit, :update, :destroy]
-    skip_before_action :verify_authenticity_token
+
     
     def new
         @story = current_user.stories.new
@@ -51,26 +51,12 @@ class StoriesController < ApplicationController
         redirect_to stories_path,notice: '故事已刪除'
     end
 
-    def clap
-        if user_signed_in?
-            story = Story.friendly.find(params[:id])
-            story.increment!(:clap)
-            render json: { status: story.clap }
-            else
-        render json: { status: 'sign_in_first' }
-            end
-    end
-
-
-
     private
 
     def find_story
         @story = current_user.stories.friendly.find(params[:id])
        
     end
-
-
 
     def story_params
         params.required(:story).permit(:title, :content, :cover_image)
