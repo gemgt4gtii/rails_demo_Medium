@@ -9,6 +9,7 @@
     "stimulus": "^2.0.0"
   },
   "devDependencies": {
+    "froala-editor": "^3.2.5",
     "webpack-dev-server": "^3.11.0"
   }
 }
