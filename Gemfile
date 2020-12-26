@@ -76,3 +76,8 @@ gem 'webpacker', '~> 4.0', '>= 4.0.7'
 gem 'paranoia', '~> 2.4', '>= 2.4.2'
 
 gem 'hirb', '~> 0.7.3'
+
+gem 'figaro', '~> 1.0'
+# 金流串接paypal
+# gem "braintree", "~> 3.1.0"
+gem 'braintree', '~> 2.100'

@@ -34,3 +34,5 @@ yarn-debug.log*
 .yarn-integrity
 /
 .git_autopush.sh
+# Ignore application configuration
+/config/application.yml

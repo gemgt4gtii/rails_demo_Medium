@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   }
   # api
   namespace :api do
+    post :upload_image, to: 'utils#upload_image'
     # users/:id/follow
     resources :users, only: [] do
       member do
@@ -18,10 +19,13 @@ Rails.application.routes.draw do
         post :bookmark
       end
     end
-
-    post :upload_image, to: 'utils#upload_image'
-
-
+  end
+  resources :users, only: [] do
+    collection do
+      get :pricing  #/users/pricing
+      get :payment  #/users/payment
+      post :pay     #/users/pay
+    end
   end
 
   resources :stories do   

@@ -10,10 +10,28 @@ class User < ApplicationRecord
   has_many :follows
   has_many :bookmarks
 
+  # define roles
+  enum role: {
+    user: 0,
+    vip_user: 1,
+    platinum_user: 2,
+    admin: 3
+  }
+
+
+
+
   # validate
   validates :username, presence: true, uniqueness: true 
 
   # instance method
+  def paid_user?
+    vip_user? or platinum_user?
+  end
+
+
+
+
   def bookmark?(story)
     bookmarks.exists?(story: story)
   end
